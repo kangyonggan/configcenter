@@ -1,9 +1,11 @@
 package com.kangyonggan.app.configcenter.configcenter.web.controller.dashboard;
 
+import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageInfo;
 import com.kangyonggan.app.configcenter.configcenter.biz.service.ConfigurationService;
 import com.kangyonggan.app.configcenter.configcenter.biz.service.DictionaryService;
 import com.kangyonggan.app.configcenter.configcenter.biz.service.ProjectService;
+import com.kangyonggan.app.configcenter.configcenter.biz.util.HttpUtil;
 import com.kangyonggan.app.configcenter.configcenter.model.constants.DictionaryType;
 import com.kangyonggan.app.configcenter.configcenter.model.vo.Configuration;
 import com.kangyonggan.app.configcenter.configcenter.model.vo.Dictionary;
@@ -194,7 +196,7 @@ public class DashboardCoreProjectController extends BaseController {
 
         if (project != null && StringUtils.isNotEmpty(project.getPushUrl())) {
             List<Configuration> configurations = configurationService.findProjectConfigurations(project.getCode(), env);
-            // TODO 推送
+            HttpUtil.sendPost(project.getPushUrl(), "data=" + JSON.toJSONString(configurations));
         } else {
             setResultMapFailure(resultMap);
         }
