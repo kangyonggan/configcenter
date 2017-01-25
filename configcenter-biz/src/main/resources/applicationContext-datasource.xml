@@ -12,7 +12,7 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:mybatis.xml"></property>
         <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
-        <property name="typeAliasesPackage" value="com.kangyonggan.app.configcenter.configcenter.model.vo"/>
+        <property name="typeAliasesPackage" value="com.kangyonggan.app.configcenter.model.vo"/>
         <property name="plugins">
             <array>
                 <bean class="com.github.pagehelper.PageHelper">
@@ -74,11 +74,11 @@
     <!--扫描basePackage下所有以@Repository注解的接口  -->
     <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-        <property name="basePackage" value="com.kangyonggan.app.configcenter.configcenter.mapper"/>
+        <property name="basePackage" value="com.kangyonggan.app.configcenter.mapper"/>
         <property name="annotationClass" value="org.springframework.stereotype.Repository"/>
         <property name="properties">
             <value>
-                mappers=com.kangyonggan.app.configcenter.configcenter.mapper.MyMapper
+                mappers=com.kangyonggan.app.configcenter.mapper.MyMapper
             </value>
         </property>
     </bean>

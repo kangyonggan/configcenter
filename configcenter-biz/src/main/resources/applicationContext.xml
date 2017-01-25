@@ -15,7 +15,7 @@
     <context:annotation-config/>
 
     <!-- Scans for application @Components to deploy -->
-    <context:component-scan base-package="com.kangyonggan.app.configcenter.configcenter"/>
+    <context:component-scan base-package="com.kangyonggan.app.configcenter"/>
 
     <!-- 使用JDBC事务 -->
     <bean id="transactionManager"
@@ -50,9 +50,9 @@
     <aop:config>
         <!--切点，用于事务-->
         <aop:pointcut id="transactionPointcut"
-                      expression="execution(* com.kangyonggan.app.configcenter.configcenter.biz.service.impl..*.*(..))"/>
+                      expression="execution(* com.kangyonggan.app.configcenter.biz.service.impl..*.*(..))"/>
         <!--切点，用于对外接口-->
-        <aop:pointcut id="servicePointcut" expression="execution(* com.kangyonggan.app.configcenter.configcenter.biz.impl..*.*(..))"/>
+        <aop:pointcut id="servicePointcut" expression="execution(* com.kangyonggan.app.configcenter.biz.impl..*.*(..))"/>
 
         <!--事物切面-->
         <aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice" order="2"/>

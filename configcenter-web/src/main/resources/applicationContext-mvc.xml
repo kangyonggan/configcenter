@@ -14,14 +14,14 @@
     <aop:config proxy-target-class="true"/>
 
     <!-- 自动扫描且只扫描@Controller -->
-    <context:component-scan base-package="com.kangyonggan.app.configcenter.configcenter.web.controller" use-default-filters="false">
+    <context:component-scan base-package="com.kangyonggan.app.configcenter.web.controller" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
         <context:include-filter type="annotation"
                                 expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
 
     <!-- 使用annotation 自动注册bean,并检查@Required,@Autowired的属性已被注入 -->
-    <context:component-scan base-package="com.kangyonggan.app.configcenter.configcenter.web">
+    <context:component-scan base-package="com.kangyonggan.app.configcenter.web">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
         <context:exclude-filter type="annotation"
                                 expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
@@ -70,7 +70,7 @@
         <property name="resolveLazily" value="true"/>
     </bean>
 
-    <bean id="exceptionResolver" class="com.kangyonggan.app.configcenter.configcenter.web.exception.CustomSimpleMappingExceptionResolver">
+    <bean id="exceptionResolver" class="com.kangyonggan.app.configcenter.web.exception.CustomSimpleMappingExceptionResolver">
         <property name="exceptionMappings">
             <props>
                 <prop key="java.lang.Exception">500</prop>

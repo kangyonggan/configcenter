@@ -27,7 +27,7 @@
     <bean id="sessionIdGenerator" class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator"/>
 
     <!-- 会话DAO -->
-    <bean id="sessionDAO" class="com.kangyonggan.app.configcenter.configcenter.biz.shiro.MyEnterpriseCacheSessionDAO">
+    <bean id="sessionDAO" class="com.kangyonggan.app.configcenter.biz.shiro.MyEnterpriseCacheSessionDAO">
         <property name="activeSessionsCacheName" value="shiro-activeSessionCache"/>
         <property name="sessionIdGenerator" ref="sessionIdGenerator"/>
     </bean>

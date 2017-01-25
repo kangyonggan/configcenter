@@ -10,14 +10,14 @@
 
         <!--base mapper-->
         <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
-            <property name="mappers" value="com.kangyonggan.app.configcenter.configcenter.mapper.MyMapper"/>
+            <property name="mappers" value="com.kangyonggan.app.configcenter.mapper.MyMapper"/>
         </plugin>
 
         <!--serialize plugin-->
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
 
         <!--lombok plugin-->
-        <plugin type="com.kangyonggan.app.configcenter.configcenter.mapper.util.LombokPlugin"/>
+        <plugin type="com.kangyonggan.app.configcenter.mapper.util.LombokPlugin"/>
 
         <!--jdbc driver-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
@@ -25,7 +25,7 @@
                         userId="root" password="123456"/>
 
         <!--Xxx.java-->
-        <javaModelGenerator targetPackage="com.kangyonggan.app.configcenter.configcenter.model.vo"
+        <javaModelGenerator targetPackage="com.kangyonggan.app.configcenter.model.vo"
                             targetProject="../configcenter-model/src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
@@ -37,7 +37,7 @@
         </sqlMapGenerator>
 
         <!--XxxMapper.java-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.kangyonggan.app.configcenter.configcenter.mapper"
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.kangyonggan.app.configcenter.mapper"
                              targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
