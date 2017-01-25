@@ -464,8 +464,6 @@ VALUES
   ('hd', '灰度', 'environment', 3),
   ('prod', '生产', 'environment', 4);
 
-INSERT INTO project (code, name) VALUES ('blog', '朕的博客');
-
 INSERT INTO content (id, title, template, body)
 VALUES (1, '注册协议', 'page', '1.1 配置中心的所有权和运营权归康永敢个人所有。
 
