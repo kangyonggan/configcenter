@@ -48,6 +48,7 @@ public class ConfigurationServiceImpl extends BaseService<Configuration> impleme
 
     @Override
     @LogTime
+    @CacheDeleteAll("configuration")
     public void saveConfiguration(Configuration configuration) {
         super.insertSelective(configuration);
     }
