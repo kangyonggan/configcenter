@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <group>
+        <!--app-->
+        <property name="configcenter.app.name" description="项目名字" defaultValue="配置中心"/>
+        <property name="configcenter.app.author" description="项目负责人" defaultValue="康永敢"/>
+        <property name="configcenter.app.name.en" description="项目名字" defaultValue="Config Center"/>
+        <property name="configcenter.app.author.en" description="项目负责人" defaultValue="kangyonggan"/>
+        <property name="configcenter.app.record" description="备案号" defaultValue="皖ICP备16017743号-1"/>
+
+        <!-- redis -->
+        <property name="configcenter.redis.maxTotal" description="redis最大连接数" defaultValue="1000"/>
+        <property name="configcenter.redis.minIdle" description="redis最小等待数" defaultValue="50"/>
+        <property name="configcenter.redis.maxIdle" description="redis最大等待数" defaultValue="100"/>
+        <property name="configcenter.redis.testOnBorrow" description="redis测试支持" defaultValue="true"/>
+        <property name="configcenter.redis.host" description="redis主机ip" defaultValue="127.0.0.1"/>
+        <property name="configcenter.redis.port" description="redis主机端口" defaultValue="6379"/>
+        <property name="configcenter.redis.password" description="redis密码" defaultValue="123456"/>
+        <property name="configcenter.redis.prefix" description="redis的key的前缀" defaultValue="configcenter"/>
+
+        <!--jdbc-->
+        <property name="configcenter.jdbc.driver" description="jdbc驱动" defaultValue="com.mysql.jdbc.Driver"/>
+        <property name="configcenter.jdbc.url" description="jdbc地址" defaultValue="jdbc:mysql://127.0.0.1:3306/configcenter"/>
+        <property name="configcenter.jdbc.username" description="jdbc用户名" defaultValue="root"/>
+        <property name="configcenter.jdbc.password" description="jdbc密码" defaultValue="123456"/>
+
+        <!--mail-->
+        <property name="configcenter.mail.host" description="邮件服务器地址" defaultValue="smtp.qq.com"/>
+        <property name="configcenter.mail.username" description="邮件服务器用户名" defaultValue="kangyonggan@qq.com"/>
+        <property name="configcenter.mail.password" description="邮件服务器密码" defaultValue="123456"/>
+        <property name="configcenter.mail.timeout" description="邮件发送超时时间" defaultValue="25000"/>
+        <property name="configcenter.mail.receiver" description="错误日志邮件接收人" defaultValue="kangyonggan@gmail.com"/>
+        <property name="configcenter.mail.bufferSize" description="错误日志邮件缓冲区大小(单位:k)" defaultValue="50"/>
+
+        <!--ftp-->
+        <property name="configcenter.ftp.path" description="上传路径" defaultValue="upload/"/>
+        <property name="configcenter.ftp.ip" description="ftp服务器ip" defaultValue="127.0.0.1"/>
+        <property name="configcenter.ftp.port" description="ftp服务器端口" defaultValue="21"/>
+        <property name="configcenter.ftp.username" description="ftp服务器ip用户名" defaultValue="kyg"/>
+        <property name="configcenter.ftp.password" description="ftp服务器ip密码" defaultValue="123456"/>
+        <property name="configcenter.ftp.url" description="文件地址" defaultValue="http://kangyonggan.com:6789/"/>
+        <property name="configcenter.file.root.path" description="文件根目录" defaultValue="/Users/kyg/code2/configcenter/configcenter-web/src/main/webapp/WEB-INF/"/>
+
+        <!-- log4j2 -->
+        <property name="configcenter.log4j2.home" description="log4j2日志的文件主目录" defaultValue="/Users/kyg/logs/configcenter"/>
+
+        <property name="configcenter.slow.method.time" description="慢方法时间(秒)" defaultValue="5"/>
+        <property name="configcenter.slow.interface.time" description="慢接口时间(秒)" defaultValue="5"/>
+        <property name="configcenter.cache.open" description="是否开启缓存,Y:开启,N:不开启" defaultValue="Y"/>
+    </group>
+    <script>
+        <generate template="app.properties" charset="UTF-8"/>
+        <generate template="messages_en_US.properties" charset="UTF-8"/>
+        <generate template="messages_zh_CN.properties" charset="UTF-8"/>
+        <generate template="applicationContext-datasource.xml" charset="UTF-8"/>
+        <generate template="applicationContext-redis.xml" charset="UTF-8"/>
+        <generate template="applicationContext-mail.xml" charset="UTF-8"/>
+        <generate template="applicationContext-ftp.xml" charset="UTF-8"/>
+        <generate template="log4j2.xml"/>
+    </script>
+</config>
