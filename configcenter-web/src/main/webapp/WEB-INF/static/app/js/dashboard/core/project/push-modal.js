@@ -18,7 +18,7 @@ $(function () {
                 success: function (response) {
                     if (response.errCode == 'success') {
                         $modal.modal('hide');
-                        Message.success("修改成功");
+                        Message.success("推送成功");
                     } else {
                         Message.error(response.errMsg);
                     }

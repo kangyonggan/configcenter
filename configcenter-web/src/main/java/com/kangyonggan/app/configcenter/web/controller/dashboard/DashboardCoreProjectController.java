@@ -11,6 +11,7 @@ import com.kangyonggan.app.configcenter.model.vo.Configuration;
 import com.kangyonggan.app.configcenter.model.vo.Dictionary;
 import com.kangyonggan.app.configcenter.model.vo.Project;
 import com.kangyonggan.app.configcenter.web.controller.BaseController;
+import lombok.extern.log4j.Log4j2;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.Map;
 
@@ -30,6 +32,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("dashboard/core/project")
+@Log4j2
 public class DashboardCoreProjectController extends BaseController {
 
     @Autowired
@@ -196,7 +199,17 @@ public class DashboardCoreProjectController extends BaseController {
 
         if (project != null && StringUtils.isNotEmpty(project.getPushUrl())) {
             List<Configuration> configurations = configurationService.findProjectConfigurations(project.getCode(), env);
-            HttpUtil.sendPost(project.getPushUrl(), "data=" + JSON.toJSONString(configurations));
+            String json = JSON.toJSONString(configurations);
+            try {
+                String data = URLEncoder.encode(json, "UTF-8");
+                String result = HttpUtil.sendPost(project.getPushUrl(), "data=" + data);
+                if (!"true".equals(result)) {
+                    setResultMapFailure(resultMap, "推送失败，请稍后再试！");
+                }
+            } catch (Exception e) {
+                log.error("推送配置失败", e);
+                setResultMapFailure(resultMap);
+            }
         } else {
             setResultMapFailure(resultMap);
         }
