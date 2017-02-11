@@ -6,7 +6,7 @@
         <property name="configcenter.app.author" description="项目负责人" defaultValue="康永敢"/>
         <property name="configcenter.app.name.en" description="项目名字" defaultValue="Config Center"/>
         <property name="configcenter.app.author.en" description="项目负责人" defaultValue="kangyonggan"/>
-        <property name="configcenter.app.record" description="备案号" defaultValue="皖ICP备16017743号-1"/>
+        <property name="configcenter.app.ba.no" description="备案号" defaultValue="皖ICP备16017743号-1"/>
 
         <!-- redis -->
         <property name="configcenter.redis.maxTotal" description="redis最大连接数" defaultValue="1000"/>
@@ -32,13 +32,6 @@
         <property name="configcenter.mail.receiver" description="错误日志邮件接收人" defaultValue="kangyonggan@gmail.com"/>
         <property name="configcenter.mail.bufferSize" description="错误日志邮件缓冲区大小(单位:k)" defaultValue="50"/>
 
-        <!--ftp-->
-        <property name="configcenter.ftp.path" description="上传路径" defaultValue="upload/"/>
-        <property name="configcenter.ftp.ip" description="ftp服务器ip" defaultValue="127.0.0.1"/>
-        <property name="configcenter.ftp.port" description="ftp服务器端口" defaultValue="21"/>
-        <property name="configcenter.ftp.username" description="ftp服务器ip用户名" defaultValue="kyg"/>
-        <property name="configcenter.ftp.password" description="ftp服务器ip密码" defaultValue="123456"/>
-        <property name="configcenter.ftp.url" description="文件地址" defaultValue="http://kangyonggan.com:6789/"/>
         <property name="configcenter.file.root.path" description="文件根目录" defaultValue="/Users/kyg/code2/configcenter/configcenter-web/src/main/webapp/WEB-INF/"/>
 
         <!-- log4j2 -->
@@ -55,7 +48,6 @@
         <generate template="applicationContext-datasource.xml" charset="UTF-8"/>
         <generate template="applicationContext-redis.xml" charset="UTF-8"/>
         <generate template="applicationContext-mail.xml" charset="UTF-8"/>
-        <generate template="applicationContext-ftp.xml" charset="UTF-8"/>
         <generate template="log4j2.xml"/>
     </script>
 </config>

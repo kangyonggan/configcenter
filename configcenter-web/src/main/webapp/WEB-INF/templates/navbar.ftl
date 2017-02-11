@@ -26,10 +26,8 @@
                     <li class="dark">
                         <a data-toggle="dropdown" href="#" class="dropdown-toggle">
                             <#if user.smallAvatar!=''>
-                                <@apps>
-                                    <img class="nav-user-photo" src="${ftpUrl}/${user.smallAvatar}"
-                                         alt="${user.fullname}">
-                                </@apps>
+                                <img class="nav-user-photo" src="${ctx}/${user.smallAvatar}"
+                                     alt="${user.fullname}">
                             <#else>
                                 <img class="nav-user-photo" src="${ctx}/static/ace/dist/avatars/profile-pic.jpg"
                                      alt="${user.fullname}">
@@ -71,14 +69,14 @@
         </@shiro.user>
 
         <#--<@shiro.guest>-->
-            <#--<ul class="nav navbar-nav">-->
-                <#--<li>-->
-                    <#--<a href="#login">登录</a>-->
-                <#--</li>-->
-                <#--<li>-->
-                    <#--<a href="#register">注册</a>-->
-                <#--</li>-->
-            <#--</ul>-->
+        <#--<ul class="nav navbar-nav">-->
+        <#--<li>-->
+        <#--<a href="#login">登录</a>-->
+        <#--</li>-->
+        <#--<li>-->
+        <#--<a href="#register">注册</a>-->
+        <#--</li>-->
+        <#--</ul>-->
         <#--</@shiro.guest>-->
         </div>
     </div>
