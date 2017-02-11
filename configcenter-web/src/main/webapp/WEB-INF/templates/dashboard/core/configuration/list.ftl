@@ -72,6 +72,6 @@
     </#if>
     </tbody>
 </table>
-<@c.pagination url="#core/configuration" param="projCode=${projCode}&environemnt=${environment}&name=${name}"/>
+<@c.pagination url="#core/configuration" param="projCode=${projCode}&environment=${environment}&name=${name}"/>
 
 <script src="${ctx}/static/app/js/dashboard/core/configuration/list.js"></script>
